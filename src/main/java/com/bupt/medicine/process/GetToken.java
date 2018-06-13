@@ -5,7 +5,6 @@ import com.bupt.medicine.data.CustomerInfo;
 import com.bupt.medicine.http.HttpControl;
 
 public class GetToken {
-    public Publish publish;
     public HttpControl hc;
 
     String id=null,token=null;
