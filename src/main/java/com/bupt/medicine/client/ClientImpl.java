@@ -2,6 +2,7 @@ package com.bupt.medicine.client;
 
 import com.bupt.medicine.data.CustomerInfo;
 import com.bupt.medicine.process.GetToken;
+import com.bupt.medicine.process.Publish;
 
 
 public class ClientImpl implements Client{

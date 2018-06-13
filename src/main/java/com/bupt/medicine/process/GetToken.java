@@ -1,6 +1,5 @@
 package com.bupt.medicine.process;
 
-import com.bupt.medicine.client.Publish;
 import com.bupt.medicine.data.CustomerInfo;
 import com.bupt.medicine.http.HttpControl;
 

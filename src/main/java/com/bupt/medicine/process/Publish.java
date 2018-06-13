@@ -1,4 +1,4 @@
-package com.bupt.medicine.client;
+package com.bupt.medicine.process;
 
 import com.bupt.medicine.data.CustomerInfo;
 import com.bupt.medicine.mqtt.DataMqttClient;
