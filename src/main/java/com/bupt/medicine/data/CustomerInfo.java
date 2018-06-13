@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CustomerInfo {
+
     private Integer customerId;
     private String customerName;
     private Integer sexInfo;
@@ -47,5 +48,20 @@ public class CustomerInfo {
     private String treatment;
     private String pharmacy;
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
 }
