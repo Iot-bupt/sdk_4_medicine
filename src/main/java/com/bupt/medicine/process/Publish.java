@@ -13,7 +13,7 @@ public class Publish {
     /*
    作为customerId的属性发送
     */
-    protected void postCustomerInfo(CustomerInfo customerInfo, String token) {
+    public void postCustomerInfo(CustomerInfo customerInfo, String token) {
         // TODO Auto-generated method stub
         try{
             Gson gson = new Gson();
@@ -28,7 +28,7 @@ public class Publish {
     /*
     作为customerId的血压数值发送
      */
-    protected void postBloodPressure(Integer systolicPressure, Integer expansionPressure, String token){
+    public void postBloodPressure(Integer systolicPressure, Integer expansionPressure, String token){
         try {
             JSONObject info = new JSONObject();
             //放入高压低压数据
