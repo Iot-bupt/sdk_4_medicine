@@ -2,7 +2,6 @@ package com.bupt.medicine.dao;
 
 import com.bupt.medicine.data.CustomerInfo;
 
-import java.beans.Customizer;
 import java.sql.*;
 
 /**
@@ -17,7 +16,7 @@ public class DAO {
                 e.printStackTrace();
             }
             //url为本地创建数据库表的目录文件
-            String url = "jdbc:sqlite:F:\\\\github\\\\sdk_4_medicine\\\\src\\\\main\\\\java\\\\com\\\\DataBase\\\\medcine.sqlite";
+            String url = "jdbc:sqlite::resources:medcine.db";
 
             try{
                 conn = DriverManager.getConnection(url);
