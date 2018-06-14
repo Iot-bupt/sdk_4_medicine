@@ -22,6 +22,7 @@ public class CustomerInfo {
     private Integer marriage;
     private String education;
     private String job;
+    private String token;
     private String homeTel;
     private String zipCode;
     private String address;
@@ -48,6 +49,14 @@ public class CustomerInfo {
     private String treatment;
     private String pharmacy;
 
+
+    public CustomerInfo(int customerId,String token){
+
+        this.customerId = customerId;
+        this.token = token;
+
+    }
+
     public Integer getCustomerId() {
         return customerId;
     }
@@ -63,5 +72,7 @@ public class CustomerInfo {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+
+    public String getToken(){return token;}
 
 }
