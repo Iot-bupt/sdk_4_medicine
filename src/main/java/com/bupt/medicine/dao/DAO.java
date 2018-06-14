@@ -12,7 +12,7 @@ public class DAO {
         private static Connection getConn() {
             Connection conn = null;
             try {
-                Class.forName("medcine.sqlite.JDBC"); //加载对应驱动
+                Class.forName("org.sqlite.JDBC"); //加载对应驱动
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
