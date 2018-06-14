@@ -2,7 +2,6 @@ package com.bupt.medicine.dao;
 
 import com.bupt.medicine.data.CustomerInfo;
 
-import java.beans.Customizer;
 import java.sql.*;
 
 /**
@@ -53,31 +52,22 @@ public class DAO {
             try {
                 pstmt = (PreparedStatement) conn.prepareStatement(sql);
                 i = pstmt.executeUpdate();
-                System.out.println("resutl: " + i);
+                System.out.println("result: " + i);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             return i;
         }
         //获取数据
-        public static Integer getAll() {
+        public static String getAll(int  customerId) {
             Connection conn = getConn();
-            String sql = "select * from medcine";
+            String sql = "select token from medcine where customerId=" + customerId;
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement)conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery();
-                int col = rs.getMetaData().getColumnCount();
-                while (rs.next()) {
-                    for (int i = 1; i <= col; i++) {
-                        System.out.print(rs.getString(i) + "\t");
-                        if ((i == 2) && (rs.getString(i).length() < 8)) {
-                            System.out.print("\t");
-                        }
-                    }
-                    System.out.println("");
-                }
-                System.out.println("============================");
+                String token = rs.getString("token");
+                return token;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
