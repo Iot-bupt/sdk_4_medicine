@@ -16,7 +16,7 @@ public class DAO {
                 e.printStackTrace();
             }
             //url为本地创建数据库表的目录文件
-            String url = "jdbc:sqlite::resources:medcine.db";
+            String url = "jdbc:sqlite::resource:medicine.db";
 
             try{
                 conn = DriverManager.getConnection(url);
@@ -26,15 +26,15 @@ public class DAO {
             return conn;
         }
        //增加数据
-        public static int insert(CustomerInfo customerInfo) {
+        public static int insert(int customerId, String token) {
             Connection conn = getConn();
             int i = 0;
-            String sql = "insert into medcine (customerId,token) values(?,?)";
+            String sql = "insert into medicine (customerId,token) values(?,?)";
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement) conn.prepareStatement(sql);
-                pstmt.setInt(1, customerInfo.getCustomerId());
-                pstmt.setString(2, customerInfo.getToken());
+                pstmt.setInt(1, customerId);
+                pstmt.setString(2, token);
                 i = pstmt.executeUpdate();
                 pstmt.close();
                 conn.close();
@@ -47,7 +47,7 @@ public class DAO {
         public static int update(CustomerInfo customerInfo) {
             Connection conn = getConn();
             int i = 0;
-            String sql = "update medcine set customerId='" + customerInfo.getCustomerId() + "' where token='" + customerInfo.getToken() ;
+            String sql = "update medicine set customerId='" + customerInfo.getCustomerId() + "' where token=" + customerInfo.getToken() ;
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -60,13 +60,17 @@ public class DAO {
         }
         //获取数据
         public static String getAll(int  customerId) {
+            String token = null;
             Connection conn = getConn();
-            String sql = "select token from medcine where customerId='" + customerId + "'";
+            String sql = "select token from medicine where customerId='" + customerId + "'";
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement)conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery();
-                String token = rs.getString("token");
+                while (rs.next()) {
+                    token = rs.getString("token");
+                }
+                rs.close();
                 return token;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -77,7 +81,7 @@ public class DAO {
         public static int delete(int customerId) {
             Connection conn = getConn();
             int i = 0;
-            String sql = "delete from medcine where customerId='" + customerId + "'";
+            String sql = "delete from medicine where customerId='" + customerId + "'";
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement) conn.prepareStatement(sql);

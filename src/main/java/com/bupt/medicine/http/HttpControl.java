@@ -13,7 +13,7 @@ import java.util.List;
 public class HttpControl {
     static private Cookie ck;
     private String host = "39.104.84.131";
-    static private String session ;
+    private static String session;
     public static String id;
     public String deviceToken;
 
@@ -40,7 +40,7 @@ public class HttpControl {
     /*
     登录时的post请求
      */
-    public void httplogin(){
+    public void httplogin() throws IOException {
         cookieStore.clear();
         //请求体
         RequestBody bodyLogin = RequestBody.create(js, "{\"username\":\"TenantAdmin@bupt.edu.cn\",\"password\":\"password\"}");
@@ -54,9 +54,19 @@ public class HttpControl {
                 .post(bodyLogin)
                 .build();
         //得到一个call对象
-        Call call = mOkHttpClient.newCall(requestLogin);
+        Response response = mOkHttpClient.newCall(requestLogin).execute();
+        if(response.isSuccessful()){
+            Headers headers = response.headers();
+            ck = cookieStore.get(host).get(0);
+
+            String sessionStr = ck.toString();
+            session = sessionStr.substring(0,sessionStr.indexOf(";"));
+
+            System.out.println("Login ck is :"+ck);
+            System.out.println("Login session is :"+session);
+        }
         //请求加入调度
-        call.enqueue(new Callback() {
+/*        call.execute(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 System.out.println("login请求失败");
@@ -74,7 +84,7 @@ public class HttpControl {
                 System.out.println("Login ck is :"+ck);
                 System.out.println("Login session is :"+session);
             }
-        });
+        });*/
 
     }
 

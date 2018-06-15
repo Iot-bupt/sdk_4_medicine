@@ -7,8 +7,8 @@ import com.bupt.medicine.process.Publish;
 
 public class ClientImpl implements Client{
 
-    public GetToken getToken;
-    public Publish publish;
+    public GetToken getToken = new GetToken();
+    public Publish publish = new Publish();
     String token=null;
 
 

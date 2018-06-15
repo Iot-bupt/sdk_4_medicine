@@ -7,7 +7,7 @@ public class Main {
     public static void main(String args[]){
         Integer systolicPressure = 143;
         Integer expansionPressure = 120;
-        CustomerInfo customerInfo = new CustomerInfo(1, "李尤");
+        CustomerInfo customerInfo = new CustomerInfo(3, "abcc");
 
         ClientImpl client = new ClientImpl();
         client.sendBloodPress(systolicPressure,expansionPressure,customerInfo);
