@@ -61,7 +61,7 @@ public class DAO {
         //获取数据
         public static String getAll(int  customerId) {
             Connection conn = getConn();
-            String sql = "select token from medcine where customerId=" + customerId;
+            String sql = "select token from medcine where customerId='" + customerId + "'";
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement)conn.prepareStatement(sql);
