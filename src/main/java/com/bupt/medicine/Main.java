@@ -8,9 +8,11 @@ public class Main {
         Integer systolicPressure = 143;
         Integer expansionPressure = 120;
         CustomerInfo customerInfo = new CustomerInfo(3, "abcc");
+        CustomerInfo customerInfo2 = new CustomerInfo(2, "abc");
 
         ClientImpl client = new ClientImpl();
         client.sendBloodPress(systolicPressure,expansionPressure,customerInfo);
+        client.sendBloodPress(systolicPressure,expansionPressure,customerInfo2);
 
     }
 }
