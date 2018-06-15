@@ -50,12 +50,13 @@ public class CustomerInfo {
     private String pharmacy;
 
 
-    public CustomerInfo(int customerId,String token){
+    public CustomerInfo(int customerId,String customerName){
 
         this.customerId = customerId;
-        this.token = token;
+        this.customerName = customerName;
 
     }
+
 
     public Integer getCustomerId() {
         return customerId;

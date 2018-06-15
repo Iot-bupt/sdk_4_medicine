@@ -1,16 +1,17 @@
 package com.bupt.medicine.process;
 
+import com.bupt.medicine.dao.dbTokenImpl;
 import com.bupt.medicine.data.CustomerInfo;
 import com.bupt.medicine.http.HttpControl;
 
 public class GetToken {
     public HttpControl hc;
-
+    public dbTokenImpl db;
     String id=null,token=null;
 
     public String getToken(CustomerInfo customerInfo){
-        Integer customerId = customerInfo.getCustomerId();
-        if(){ //数据库中customerId判断
+        int customerId = customerInfo.getCustomerId();
+        if(db.get(customerId) == null){ //数据库中customerId判断
             //SQLite里没有token
             new Thread(new Runnable() {
                 @Override
@@ -23,20 +24,13 @@ public class GetToken {
                         e.printStackTrace();
                     }
                     //存入DB
-
-                    //发送customer血压值
-                    //publish.postBloodPressure(systolicPressure,expansionPressure,token);
-                    //publish.postCustomerInfo(customerInfo,token);
-
+                    db.insert(customerId,token);
                 }
             }).start();
             return token;
         }else{
             //SQLite里有token，从表中拿token
-            //String token = null;
-            //发送customer血压值和info
-            //publish.postBloodPressure(systolicPressure,expansionPressure,token);
-            //publish.postCustomerInfo(customerInfo,token);
+            String token = db.get(customerId);
             return token;
         }
     }
