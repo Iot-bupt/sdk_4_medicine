@@ -8,5 +8,5 @@ public interface dbToken {
     public void insert(int customerId,String token);
     public boolean delete(int customerId);
     public boolean update(int customerId,String token);
-    public void get(int customerId);
+    public String get(int customerId);
 }

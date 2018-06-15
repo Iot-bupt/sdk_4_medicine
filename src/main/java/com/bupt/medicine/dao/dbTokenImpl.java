@@ -30,8 +30,9 @@ public class dbTokenImpl implements dbToken {
     }
 
     //查询数据
-    public void get(int customerId) {
-        DAO.getAll(customerId);
+    public String get(int customerId) {
+       String rs = DAO.getAll(customerId);
+       return rs;
     }
 
 }
