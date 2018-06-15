@@ -1,8 +1,6 @@
 package com.bupt.medicine.dao;
 
 
-import com.bupt.medicine.data.CustomerInfo;
-
 /**
  * Created by zyf on 2018/6/13.
  */
@@ -23,7 +21,7 @@ public class dbTokenImpl implements dbToken {
 
     //更新数据
     public boolean update(int customerId,String token) {
-        DAO.update(new CustomerInfo(customerId, token));
+        DAO.update(customerId,token);
         return true;
     }
 

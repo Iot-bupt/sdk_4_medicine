@@ -1,7 +1,5 @@
 package com.bupt.medicine.dao;
 
-import com.bupt.medicine.data.CustomerInfo;
-
 import java.sql.*;
 
 /**
@@ -44,10 +42,10 @@ public class DAO {
             return i;
         }
         //更新数据
-        public static int update(CustomerInfo customerInfo) {
+        public static int update(Integer customerId, String token) {
             Connection conn = getConn();
             int i = 0;
-            String sql = "update medicine set customerId='" + customerInfo.getCustomerId() + "' where token=" + customerInfo.getToken() ;
+            String sql = "update medicine set customerId='" + customerId + "' where token=" + token ;
             PreparedStatement pstmt;
             try {
                 pstmt = (PreparedStatement) conn.prepareStatement(sql);

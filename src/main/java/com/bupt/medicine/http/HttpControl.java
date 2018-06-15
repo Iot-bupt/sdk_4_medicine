@@ -43,7 +43,7 @@ public class HttpControl {
     public void httplogin() throws IOException {
         cookieStore.clear();
         //请求体
-        RequestBody bodyLogin = RequestBody.create(js, "{\"username\":\"TenantAdmin@bupt.edu.cn\",\"password\":\"password\"}");
+        RequestBody bodyLogin = RequestBody.create(js, "{\"username\":\"whr@bupt.edu.cn\",\"password\":\"password\"}");
 
         //创建一个Request Request是OkHttp中访问的请求，Builder是辅助类。Response即OkHttp中的响应。
         final Request requestLogin = new Request.Builder()

@@ -22,7 +22,6 @@ public class CustomerInfo {
     private Integer marriage;
     private String education;
     private String job;
-    private String token;
     private String homeTel;
     private String zipCode;
     private String address;
@@ -74,6 +73,5 @@ public class CustomerInfo {
         this.customerName = customerName;
     }
 
-    public String getToken(){return token;}
 
 }
