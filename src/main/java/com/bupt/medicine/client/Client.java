@@ -13,5 +13,5 @@ public interface Client {
 
     public abstract void sendTemperature(Double temperature, CustomerInfo customerInfo);
 
-    public abstract void sendWeightinfo(Double weightValue, CustomerInfo customerInfo);
+    public abstract void sendWeightInfo(Double weightValue, CustomerInfo customerInfo);
 }
