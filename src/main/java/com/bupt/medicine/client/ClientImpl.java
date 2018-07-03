@@ -46,7 +46,7 @@ public class ClientImpl implements Client{
         publish.postCustomerInfo(customerInfo,token);
     }
 
-    public void weightinfo(Double weightValue, CustomerInfo customerInfo){
+    public void sendWeightinfo(Double weightValue, CustomerInfo customerInfo){
         token = getToken.getToken(customerInfo);
         publish.postWeightValue(weightValue,token);
         publish.postCustomerInfo(customerInfo,token);
